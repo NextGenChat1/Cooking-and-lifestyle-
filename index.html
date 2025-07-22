@@ -3,252 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cooking and Lifestyle Website</title>
+    <title>🎨 Meri Pehli Website</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* CSS Styling */
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #f4f4f4;
         }
+
         header {
-            background: #35424a;
-            color: #ffffff;
-            padding: 10px 0;
+            background-color: #2c3e50;
+            color: white;
             text-align: center;
+            padding: 30px 0;
         }
-        nav {
+
+        .hero {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
             margin: 20px 0;
         }
-        nav a {
-            margin: 0 15px;
-            color: #35424a;
-            text-decoration: none;
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
         }
-        section {
-            background: #ffffff;
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            flex: 1 1 300px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+
         footer {
+            background-color: #2c3e50;
+            color: white;
             text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
-            background: #35424a;
-            color: #ffffff;
+            padding: 20px 0;
+            margin-top: 30px;
         }
-        .category {
-            margin-top: 20px;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            background: #e2e2e2;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.5);
-            padding-top: 60px;
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .ai-section {
-            margin-top: 20px;
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .features {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Cooking and Lifestyle Website</h1>
-    </header>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#recipes">Recipes</a>
-        <a href="#health-tips">Health Tips</a>
-        <a href="#lifestyle">Lifestyle</a>
-        <a href="#sustainability">Sustainability</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <section id="about">
-        <h2>About Us</h2>
-        <p>This platform offers a variety of recipes, health tips, and lifestyle content to enhance your culinary journey!</p>
-    </section>
-    
-    <section id="recipes" class="category">
-        <h2>Popular International Recipes</h2>
-        <ul>
-            <li onclick="openModal('recipe1')">Spaghetti Carbonara</li>
-            <li onclick="openModal('recipe2')">Chicken Tikka Masala</li>
-            <li onclick="openModal('recipe3')">Tacos al Pastor</li>
-            <li onclick="openModal('recipe4')">Sushi</li>
-            <li onclick="openModal('recipe5')">Beef Stroganoff</li>
-            <li onclick="openModal('recipe6')">Paella</li>
-            <li onclick="openModal('recipe7')">Falafel</li>
-            <li onclick="openModal('recipe8')">Chili Con Carne</li>
-            <li onclick="openModal('recipe9')">Peking Duck</li>
-            <li onclick="openModal('recipe10')">Baklava</li>
-        </ul>
-    </section>
-    
-    <section id="health-tips" class="category">
-        <h2>Health Tips</h2>
-        <ul>
-            <li onclick="openModal('healthTip1')">Stay Hydrated</li>
-            <li onclick="openModal('healthTip2')">Balanced Diet</li>
-            <li onclick="openModal('healthTip3')">Portion Control</li>
-            <li onclick="openModal('healthTip4')">Regular Exercise</li>
-            <li onclick="openModal('healthTip5')">Mindful Eating</li>
-            <li onclick="openModal('healthTip6')">Limit Sugar Intake</li>
-            <li onclick="openModal('healthTip7')">Include Fiber</li>
-            <li onclick="openModal('healthTip8')">Healthy Snacking</li>
-        </ul>
-    </section>
-    
-    <section id="lifestyle" class="category">
-        <h2>Lifestyle Tips</h2>
-        <ul>
-            <li onclick="openModal('lifestyleTip1')">Organize Your Kitchen</li>
-            <li onclick="openModal('lifestyleTip2')">Meal Prep</li>
-            <li onclick="openModal('lifestyleTip3')">Cooking with Kids</li>
-            <li onclick="openModal('lifestyleTip4')">Explore New Cuisines</li>
-            <li onclick="openModal('lifestyleTip5')">Seasonal Cooking</li>
-            <li onclick="openModal('lifestyleTip6')">Budget Shopping</li>
-            <li onclick="openModal('lifestyleTip7')">Plan Family Meals</li>
-        </ul>
-    </section>
-    
-    <section id="sustainability" class="category">
-        <h2>Sustainable Living Tips</h2>
-        <ul>
-            <li onclick="openModal('sustainabilityTip1')">Buy Local</li>
-            <li onclick="openModal('sustainabilityTip2')">Compost Waste</li>
-            <li onclick="openModal('sustainabilityTip3')">Use Reusable Bags</li>
-            <li onclick="openModal('sustainabilityTip4')">Minimize Plastic</li>
-            <li onclick="openModal('sustainabilityTip5')">Grow Your Own Herbs</li>
-            <li onclick="openModal('sustainabilityTip6')">Reduce Food Waste</li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: contact@mycookingwebsite.com</p>
-    </section>
-
-    <section class="ai-section">
-        <h2>Ask for a Recipe or Tip</h2>
-        <input type="text" id="userQuery" placeholder="What recipe or tip do you want?" />
-        <button onclick="getAIResponse()">Ask AI</button>
-        <div id="aiResponse"></div>
-    </section>
-
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modal-body"></div>
+        <div class="container">
+            <h1>🎉 Meri Pehli Website</h1>
+            <p>Yeh meri ghar se banayi hui pehli website hai!</p>
         </div>
-    </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>🌟 Welcome!</h2>
+            <p>Aap yahan kuch naya seekh sakte hain ya enjoy kar sakte hain.</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2>📚 Meri Pasand</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>📖 Reading</h3>
+                <p>Main novels aur history books pasand karta hoon.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎵 Music</h3>
+                <p>Main guitar bajana seekh raha hoon.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🌱 Gardening</h3>
+                <p>Main ghar mein plants grow karta hoon.</p>
+            </div>
+    </section>
 
     <footer>
-        <p>&copy; 2025 My Cooking and Lifestyle Website</p>
+        <div class="container">
+            <p>© 2023 Meri Pehli Website. All rights reserved.</p>
+        </div>
     </footer>
-
-    <script>
-        function openModal(contentId) {
-            const modal = document.getElementById("modal");
-            const modalBody = document.getElementById("modal-body");
-
-            const content = {
-                recipe1: "<h3>Spaghetti Carbonara</h3><img src='https://example.com/spaghetti.jpg' alt='Spaghetti Carbonara' style='width:100%;'/><p>A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.</p><p><strong>Ingredients:</strong> Spaghetti, eggs, parmesan cheese, pancetta, black pepper.</p><p><strong>Method:</strong> Cook spaghetti, mix with eggs and cheese, add pancetta.</p>",
-                recipe2: "<h3>Chicken Tikka Masala</h3><img src='https://example.com/chicken_tikka.jpg' alt='Chicken Tikka Masala' style='width:100%;'/><p>Marinated chicken in a spiced curry sauce, served with rice.</p><p><strong>Ingredients:</strong> Chicken, yogurt, spices, tomato sauce.</p><p><strong>Method:</strong> Marinate chicken, grill, and cook in sauce.</p>",
-                recipe3: "<h3>Tacos al Pastor</h3><img src='https://example.com/tacos.jpg' alt='Tacos al Pastor' style='width:100%;'/><p>Flavorful pork tacos topped with pineapple and fresh cilantro.</p><p><strong>Ingredients:</strong> Pork, pineapple, cilantro, tortillas.</p><p><strong>Method:</strong> Marinate pork, grill, and serve with toppings.</p>",
-                recipe4: "<h3>Sushi</h3><img src='https://example.com/sushi.jpg' alt='Sushi' style='width:100%;'/><p>Japanese dish of vinegared rice combined with various ingredients.</p><p><strong>Ingredients:</strong> Sushi rice, vinegar, fish, seaweed.</p><p><strong>Method:</strong> Prepare rice, roll with fillings.</p>",
-                recipe5: "<h3>Beef Stroganoff</h3><img src='https://example.com/beef_stroganoff.jpg' alt='Beef Stroganoff' style='width:100%;'/><p>Tender beef cooked in a creamy mushroom sauce, served over noodles.</p><p><strong>Ingredients:</strong> Beef, mushrooms, cream, noodles.</p><p><strong>Method:</strong> Cook beef, add mushrooms and cream, serve over noodles.</p>",
-                recipe6: "<h3>Paella</h3><img src='https://example.com/paella.jpg' alt='Paella' style='width:100%;'/><p>A famous Spanish rice dish cooked with saffron and a variety of meats and seafood.</p><p><strong>Ingredients:</strong> Rice, saffron, chicken, seafood.</p><p><strong>Method:</strong> Cook rice with saffron, add meats and seafood.</p>",
-                recipe7: "<h3>Falafel</h3><img src='https://example.com/falafel.jpg' alt='Falafel' style='width:100%;'/><p>Deep-fried balls made from ground chickpeas, often served in pita bread.</p><p><strong>Ingredients:</strong> Chickpeas, spices, herbs.</p><p><strong>Method:</strong> Blend chickpeas, form balls, and fry.</p>",
-                recipe8: "<h3>Chili Con Carne</h3><img src='https://example.com/chili.jpg' alt='Chili Con Carne' style='width:100%;'/><p>A hearty stew made with ground beef, beans, and spices.</p><p><strong>Ingredients:</strong> Ground beef, beans, tomatoes, spices.</p><p><strong>Method:</strong> Cook beef, add beans and spices, simmer.</p>",
-                recipe9: "<h3>Peking Duck</h3><img src='https://example.com/peking_duck.jpg' alt='Peking Duck' style='width:100%;'/><p>A Chinese dish known for its crispy skin and tender meat, often served with pancakes.</p><p><strong>Ingredients:</strong> Duck, pancakes, hoisin sauce.</p><p><strong>Method:</strong> Roast duck, serve with pancakes and sauce.</p>",
-                recipe10: "<h3>Baklava</h3><img src='https://example.com/baklava.jpg' alt='Baklava' style='width:100%;'/><p>A rich, sweet pastry made of layers of filo filled with chopped nuts and sweetened with honey.</p><p><strong>Ingredients:</strong> Filo pastry, nuts, honey.</p><p><strong>Method:</strong> Layer pastry with nuts, bake, and drizzle with honey.</p>",
-                healthTip1: "<h3>Stay Hydrated</h3><p>Drink plenty of water throughout the day.</p>",
-                healthTip2: "<h3>Balanced Diet</h3><p>Include a variety of fruits, vegetables, and whole grains.</p>",
-                healthTip3: "<h3>Portion Control</h3><p>Be mindful of portion sizes to avoid overeating.</p>",
-                healthTip4: "<h3>Regular Exercise</h3><p>Incorporate physical activity into your daily routine.</p>",
-                healthTip5: "<h3>Mindful Eating</h3><p>Take your time to enjoy meals and listen to your body's hunger cues.</p>",
-                healthTip6: "<h3>Limit Sugar Intake</h3><p>Avoid excessive sugar in your diet for better health.</p>",
-                healthTip7: "<h3>Include Fiber</h3><p>Add fiber-rich foods to promote digestive health.</p>",
-                healthTip8: "<h3>Healthy Snacking</h3><p>Choose nutritious snacks like fruits and nuts.</p>",
-                lifestyleTip1: "<h3>Organize Your Kitchen</h3><p>Keep your workspace tidy for efficient cooking.</p>",
-                lifestyleTip2: "<h3>Meal Prep</h3><p>Plan and prepare meals in advance to save time.</p>",
-                lifestyleTip3: "<h3>Cooking with Kids</h3><p>Involve children in the cooking process for fun learning.</p>",
-                lifestyleTip4: "<h3>Explore New Cuisines</h3><p>Try cooking dishes from different cultures.</p>",
-                lifestyleTip5: "<h3>Seasonal Cooking</h3><p>Use seasonal ingredients for better taste and health.</p>",
-                lifestyleTip6: "<h3>Budget Shopping</h3><p>Plan shopping around weekly sales to save money.</p>",
-                lifestyleTip7: "<h3>Plan Family Meals</h3><p>Involve everyone in meal planning for better choices.</p>",
-                sustainabilityTip1: "<h3>Buy Local</h3><p>Support local farmers and reduce carbon footprint.</p>",
-                sustainabilityTip2: "<h3>Compost Waste</h3><p>Reduce food waste by composting leftovers.</p>",
-                sustainabilityTip3: "<h3>Use Reusable Bags</h3><p>Opt for reusable bags while shopping.</p>",
-                sustainabilityTip4: "<h3>Minimize Plastic</h3><p>Avoid single-use plastics in the kitchen.</p>",
-                sustainabilityTip5: "<h3>Grow Your Own Herbs</h3><p>Start a small herb garden at home.</p>",
-                sustainabilityTip6: "<h3>Reduce Food Waste</h3><p>Plan meals to use up leftovers effectively.</p>",
-            };
-
-            modalBody.innerHTML = content[contentId];
-            modal.style.display = "block";
-        }
-
-        function closeModal() {
-            document.getElementById("modal").style.display = "none";
-        }
-
-        async function getAIResponse() {
-            const query = document.getElementById("userQuery").value;
-            const responseDiv = document.getElementById("aiResponse");
-
-            // Make API call to your backend server
-            const response = await fetch('/api/getResponse', { // Adjust API endpoint
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ query: query }),
-            });
-
-            const data = await response.json();
-            responseDiv.innerHTML = `<h3>AI Response:</h3><p>${data.answer}</p>`;
-        }
-    </script>
 </body>
 </html>
