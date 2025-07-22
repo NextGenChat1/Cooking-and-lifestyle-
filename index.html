@@ -1,112 +1,284 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎨 Meri Pehli Website</title>
-    <style>
-        /* CSS Styling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ڈیجیٹل ٹائم کیپسول</title>
+  
+  <!-- CSS کا سارا کوڈ یہیں موجود ہے -->
+  <style>
+    /* عمومی اسٹائلز */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f2f5;
+      color: #333;
+      direction: rtl; /* دائیں سے بائیں لکھنے کے لیے */
+      text-align: right; /* متن کو دائیں طرف کرنے کے لیے */
+    }
 
-        body {
-            background-color: #f0f0f0;
-            color: #333;
-            line-height: 1.6;
-        }
+    header, footer {
+      background: #4a90e2; /* نیلا رنگ */
+      color: #fff;
+      padding: 15px 0;
+      text-align: center;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    /* مین سیکشن اسٹائل */
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: 20px auto;
+    }
 
-        header {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 30px 0;
-        }
+    /* فارم اسٹائل */
+    #create-capsule, #capsule-list {
+      background: #fff;
+      padding: 25px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+        border-bottom: 2px solid #4a90e2;
+        padding-bottom: 10px;
+        margin-top: 0;
+    }
 
-        .hero {
-            background-color: #3498db;
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            margin: 20px 0;
-        }
+    .form-group {
+      margin-bottom: 20px;
+    }
 
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 30px 0;
-        }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
 
-        .feature-card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            flex: 1 1 300px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+    .form-group input[type="text"],
+    .form-group input[type="date"],
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    
+    .form-group input:focus, .form-group textarea:focus {
+        border-color: #4a90e2;
+        outline: none;
+    }
+    
+    textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
 
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 30px;
-        }
+    /* بٹن اسٹائل */
+    button {
+      background: #4a90e2;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .features {
-                flex-direction: column;
-            }
-        }
-    </style>
+    button:hover {
+      background: #357abd;
+    }
+
+    /* کیپسول لسٹ اسٹائل */
+    .capsule {
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      background: #fafafa;
+      position: relative;
+    }
+
+    .capsule h3 {
+      margin-top: 0;
+      color: #4a90e2;
+    }
+
+    .capsule small {
+      display: block;
+      margin-bottom: 10px;
+      color: #666;
+    }
+    
+    .capsule p {
+        line-height: 1.6;
+    }
+    
+    .capsule em { /* لاکڈ میسج کے لیے اسٹائل */
+        color: #888;
+        font-style: italic;
+    }
+
+    .delete-btn {
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      left: 15px; /* بٹن کو بائیں طرف کرنے کے لیے */
+      transition: background-color 0.3s;
+    }
+
+    .delete-btn:hover {
+      background: #c0392b;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>🎉 Meri Pehli Website</h1>
-            <p>Yeh meri ghar se banayi hui pehli website hai!</p>
-        </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>🌟 Welcome!</h2>
-            <p>Aap yahan kuch naya seekh sakte hain ya enjoy kar sakte hain.</p>
+  <header>
+    <h1>میرا ڈیجیٹل ٹائم کیپسول</h1>
+  </header>
+  
+  <main>
+    <!-- کیپسول بنانے کا فارم -->
+    <section id="create-capsule">
+      <h2>نیا کیپسول بنائیں</h2>
+      <form id="capsuleForm">
+        <div class="form-group">
+          <label for="title">عنوان:</label>
+          <input type="text" id="title" name="title" placeholder="کیپسول کا عنوان لکھیں" required>
         </div>
+        <div class="form-group">
+          <label for="message">آپ کا پیغام:</label>
+          <textarea id="message" name="message" placeholder="اپنی یادیں یا پیغام یہاں لکھیں..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="date">کھولنے کی تاریخ:</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <button type="submit">کیپسول محفوظ کریں</button>
+      </form>
     </section>
 
-    <section class="container">
-        <h2>📚 Meri Pasand</h2>
-        <div class="features">
-            <div class="feature-card">
-                <h3>📖 Reading</h3>
-                <p>Main novels aur history books pasand karta hoon.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🎵 Music</h3>
-                <p>Main guitar bajana seekh raha hoon.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🌱 Gardening</h3>
-                <p>Main ghar mein plants grow karta hoon.</p>
-            </div>
+    <!-- محفوظ شدہ کیپسول کی لسٹ -->
+    <section id="capsule-list">
+      <h2>محفوظ شدہ کیپسولز</h2>
+      <div id="capsuleContainer">
+        <!-- محفوظ شدہ کیپسول یہاں خود بخود ظاہر ہوں گے -->
+      </div>
     </section>
+  </main>
+  
+  <footer>
+    <p>میرا پہلا پراجیکٹ &copy; 2024</p>
+  </footer>
+  
+  <!-- JavaScript کا سارا کوڈ یہیں موجود ہے -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const capsuleForm = document.getElementById('capsuleForm');
+      const capsuleContainer = document.getElementById('capsuleContainer');
 
-    <footer>
-        <div class="container">
-            <p>© 2023 Meri Pehli Website. All rights reserved.</p>
-        </div>
-    </footer>
+      // LocalStorage سے کیپسولز لوڈ کریں (اگر پہلے سے موجود ہیں)
+      let capsules = JSON.parse(localStorage.getItem('capsules')) || [];
+
+      // کیپسولز کو صفحہ پر دکھانے کا فنکشن
+      function renderCapsules() {
+        capsuleContainer.innerHTML = '';
+        if (capsules.length === 0) {
+          capsuleContainer.innerHTML = "<p>ابھی تک کوئی کیپسول محفوظ نہیں کیا گیا۔</p>";
+          return;
+        }
+
+        // کیپسولز کو الٹا دکھائیں تاکہ نیا سب سے اوپر آئے
+        const reversedCapsules = [...capsules].reverse();
+
+        reversedCapsules.forEach(function(capsule, originalIndex) {
+          const actualIndex = capsules.length - 1 - originalIndex;
+          const capsuleDiv = document.createElement('div');
+          capsuleDiv.className = 'capsule';
+
+          const today = new Date();
+          today.setHours(0, 0, 0, 0); // وقت کو نظر انداز کرنے کے لیے
+          const openDate = new Date(capsule.date);
+
+          let contentHTML = '';
+          if (today >= openDate) {
+            // اگر تاریخ گزر چکی ہے تو پیغام دکھائیں
+            contentHTML = `<p>${capsule.message.replace(/\n/g, '<br>')}</p>`; // نئی لائن کو <br> میں تبدیل کریں
+          } else {
+            // اگر تاریخ ابھی نہیں آئی تو لاکڈ پیغام دکھائیں
+            contentHTML = `<p><em>یہ کیپسول ${capsule.date} تک لاک ہے۔</em></p>`;
+          }
+
+          capsuleDiv.innerHTML = `
+            <h3>${capsule.title}</h3>
+            <small>کھولنے کی تاریخ: ${capsule.date}</small>
+            ${contentHTML}
+            <button data-index="${actualIndex}" class="delete-btn">حذف کریں</button>
+          `;
+          capsuleContainer.appendChild(capsuleDiv);
+        });
+      }
+
+      // فارم جمع کرانے پر نیا کیپسول شامل کرنے کا فنکشن
+      capsuleForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const title = document.getElementById('title').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const date = document.getElementById('date').value;
+
+        if (!title || !message || !date) {
+          alert("براہ کرم تمام خانے پُر کریں۔");
+          return;
+        }
+
+        const newCapsule = { title, message, date };
+
+        // نیا کیپسول ارے میں شامل کریں
+        capsules.push(newCapsule);
+
+        // اپڈیٹ شدہ لسٹ کو LocalStorage میں محفوظ کریں
+        localStorage.setItem('capsules', JSON.stringify(capsules));
+
+        // فارم کو خالی کریں
+        capsuleForm.reset();
+
+        // کیپسولز کی لسٹ کو دوبارہ تازہ کریں
+        renderCapsules();
+      });
+
+      // حذف کرنے کے بٹن کی کارکردگی
+      capsuleContainer.addEventListener('click', function(e) {
+        if (e.target.classList.contains('delete-btn')) {
+          const indexToDelete = parseInt(e.target.getAttribute('data-index'));
+          
+          // صارف سے تصدیق لیں
+          if (confirm("کیا آپ واقعی اس کیپسول کو حذف کرنا چاہتی ہیں؟")) {
+            capsules.splice(indexToDelete, 1); // ارے سے کیپسول ہٹائیں
+            localStorage.setItem('capsules', JSON.stringify(capsules)); // LocalStorage کو اپڈیٹ کریں
+            renderCapsules(); // لسٹ کو تازہ کریں
+          }
+        }
+      });
+
+      // صفحہ لوڈ ہونے پر پہلی بار کیپسولز دکھائیں
+      renderCapsules();
+    });
+  </script>
+
 </body>
 </html>
+اب کیا ہوگا؟
